@@ -8,10 +8,10 @@ class MyDocument extends Document {
 
   render() {
     const meta = {
-      title: 'Next.js Blog Starter Kit',
-      description: 'Clone and deploy your own Next.js portfolio in minutes.',
+      title: 'Blog do Grubba',
+      description: 'um desabafo de um eterno estudante.',
       image:
-        'https://assets.vercel.com/image/upload/q_auto/front/vercel/dps.png'
+        'http://videira.ifc.edu.br/wp-content/uploads/2018/09/15-DSC_0147.jpg'
     }
 
     return (
