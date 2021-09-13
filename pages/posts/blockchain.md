@@ -6,7 +6,7 @@ tag: web development
 author: You
 ---
 
-#Blockchains
+<h1>Blockchains</h1>
 
 Em um mundo cheio de palavras engraçadas e **difíceis** temos uma que 
 as vezes dão calafrios para muitos devs e pessoas que trabalham com tech: _Blockchain_
@@ -23,7 +23,7 @@ Nada mais que um "I know i guy who knows a guy" ou seja, conheço alguem que con
 Tá mas e o código? é agora a hora da realidade → esse repo aqui tem um exemplo de blockchain realemente muito simples feito em TS com o Node, usando classes da maneira mais simples e rápida o possivel e o que vamos destrinchar é o
 [Projeto](https://github.com/Grubba27/my-shit-coin).
 <br/>
-##Transaction
+<h2>Transaction</h2>
 Vou ser bem pratico. Vou falar das 4 classes que temos que compõem o projeto e por fim falarei do caso em uso. O primeiro que iremos falar é o mais simples e o começo de tudo é a transação por si só em termos de código é só esse simples trecho:
 
 ```
@@ -42,7 +42,7 @@ export default class Transaction {
 
 Esse trecho em TS é bem expressivo e simples, uma transação é feita de um valor(número) a ser pago, um recebedor e sua chave publica, um pagador e chave publica. Possui uma função que será repetida varias vezes que é o toString(), padrão.
 <br/>
-##Block
+<h2>Block</h2>
 O bloco é a peça fundamental que constroi os nós de uma blockchain, nela teremos alguns detalhes importantes, como o uso da nossa classe Transaction que declaramos anteriormente.
 
 
@@ -73,7 +73,8 @@ export default class Block {
 Além do import de Transaction, é necessario importar a lib que está no Node.js, a Crypto, pois usaremos um algoritimo para criar um [hash](https://www.techtudo.com.br/artigos/noticia/2012/07/o-que-e-hash.html) usando o [SHA256](https://pt.wikipedia.org/wiki/SHA-2), para saber mais eu coloquei link nessas duas palavras diferenciadas que é importante saber antes de continuar.
 esse hash é como se fosse a identidade do bloco, que será utilizado no futuro, ele por fim terá uma timeStamp para saber o tempo e poder ser uma verificação no futuro, só pode haver **NOVOS** blocos nunca velhos.
 <br/>
-##Chain
+
+<h2>Chain</h2>
 
 Chegamos na parte mais doida, a chain por si só, que é formada por blocos, virando uma blockchain. Piadas a parte segue o código e vamos destrinchar as funções nele distribuidas.
 
@@ -130,7 +131,7 @@ A prova de trabalho tem uma premissa simples que é o essencial a ser feito e en
 <br/>
 Temos por fim a função de adicionar bloco ao objeto, que seria feito com uma validação de prof of work conforme explicado acima
 
-##Wallet
+<h2>Wallet</h2>
 
 A carteira como muitos sites tem, é nada mais que alguma forma de te identificar e ao mesmo tempo criptografar sua vida como dono de uma moeda.
 
@@ -170,7 +171,7 @@ Nesse trecho temos algo relativamente divertido, além dos imports, temos a cria
 Com nosso identificador publico e privado, podemos agora enviar dinheiro fazendo assinaturas, deixando seguro baseando-se em criptografia. Cada nova transação cria um novo bloco que afeta a chain como um todo.<br/>
 Para desenhar e ficar facil entender o que ocorre no fim: wallet faz uma transação que cria um novo bloco que afeta nossa chain.
 
-##Conclusão 
+<h2>Conclusão </h2>
 Para concluir temos nosso index.ts que faz a comprovação do que acabamos de codar e é uma ótima prova de conceito.
 
 ```
