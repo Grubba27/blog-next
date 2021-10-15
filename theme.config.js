@@ -2,9 +2,7 @@ const YEAR = new Date().getFullYear()
 
 export default {
   footer: (
-    <small style={{ display: 'block', marginTop: '8rem' }}>
-      <time>{YEAR}</time> © Gabriel Grubba.
-      <a href="/feed.xml">RSS</a>
+    <small style={{ display: 'flex', marginTop: '8rem' , flexDirection:'column'}}>
       <style jsx>{`
         a {
           float: right;
@@ -16,6 +14,11 @@ export default {
           }
         }
       `}</style>
+      <span>Entre em contato comigo nas redes socias </span>
+      <a href={'https://twitter.com/que_cara_legal'}> Twitter</a>
+      <a href={'https://github.com/Grubba27'}> GitHub</a>
+      <a href={'https://instagram.com/ggrubba'}> Instagram</a>
+      Email: grubba27@hotmail.com -> Gabriel Grubba.
     </small>
   )
 }
