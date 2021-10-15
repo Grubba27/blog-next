@@ -1,6 +1,6 @@
 ---
 title: VSCode
-date: 2021/09/13
+date: 2021/10/14
 description: Um exemplo prático de como é criar uma extensão no VSCode 
 tag: web development 
 author: You
