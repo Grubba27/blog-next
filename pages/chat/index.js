@@ -1,3 +1,4 @@
+import {useEffect} from "react";
 
 export default function Chat() {
 
@@ -5,6 +6,9 @@ export default function Chat() {
    window.history.back()
  }
 
+ useEffect(() => {
+   window.location.href = 'https://chat-app-with-express.herokuapp.com/';
+ }, [])
 
   return(
     <div>
