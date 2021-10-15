@@ -2,7 +2,7 @@
 title: VSCode
 date: 2021/10/14
 description: Um exemplo prático de como é criar uma extensão no VSCode 
-tag: web development 
+tag: web development , VSCode
 author: You
 ---
 <h1>VSCode Extensions</h1>
@@ -17,15 +17,12 @@ texto, leve e prático, uma dessas belezas dele é a criação de suas extençõ
     Vale também sempre ressaltar a importante sobre entender como as engines JS funcionam e iterpretam o código
 ```
 
-<br/>
 
 Vou falar desse script aqui que gera o 'Crazy Spacings'
 -> [Código no github](https://github.com/Grubba27/crazy-spacings/blob/master/src/extension.ts)
 vou quebrar ele por quase que linha por linha, de forma que você entenda e possa criar caso necessario os seus plugins
 para melhorar seus dias como dev
-<h2> O Início</h2>
-<br/>
-
+<h3> O Início</h3>
 ```
 Quando você abre a paleta de comandos do VSCode e escreve o comando que é descrito no market
 
@@ -53,16 +50,16 @@ export function activate(context: vscode.ExtensionContext) {
 
 ```
 
-<br/>
 Quando abrimos o script temos que fazer esse bind, via API vscode.commands.registerCommand -> ao fazer essa linha, 
 registramos esse comando a ser usado na paleta de comandos, vale ressaltar que a API do vscode é extremamente util e facil de ser entendida.
-<br/>
 
 ```
  vscode.window.showInformationMessage('mensagem') é o equivalente de um console.log
 ```
-
-<h2>Selecionando texto</h2>
+<h3>
+Selecionando texto
+</h3>
+A função de selecionar texto, é feita através da API de vscode.window.activeTextEditor.document, tendo essa variavel, é criado um array, que é preenchido com o valor de cada linha, onde poderá ser feito através de Regex, a analise dessa linha, baseado no retorno de cada linha temos o array que representa o documento do user do seu plugin.
 
 ```
 const textRange = () => {
@@ -90,13 +87,9 @@ const textRange = () => {
 		};
 
 ```
-
-<br/>
- A função de selecionar texto, é feita através da API de vscode.window.activeTextEditor.document, tendo essa variavel, é criado um array, que é preenchido com o valor de cada linha, onde poderá ser feito através de Regex, a analise dessa linha, baseado no retorno de cada linha temos o array que representa o documento do user do seu plugin.
-
-<h2>Evento e Callbacks</h2>
-<br/>
-
+<h3>Evento e Callbacks</h3>
+O evento, de alterar texto é feito a chamada da api onDidChangeTextDocument passando o evento como parametro **_e_**
+no inicio da nossa função de callback, vemos o que recebemos do texto e analisamos ele como um todo e baseado no seus testes poderá ser feito alguma coisa na proxima função
 ```
 	vscode.workspace.onDidChangeTextDocument(function event(e) {
 			const changedText = e.contentChanges[0].text;
@@ -113,10 +106,8 @@ const textRange = () => {
 				if (randomAddOrSubstr <= 5) {
 				
 ```
-O evento, de alterar texto é feito a chamada da api onDidChangeTextDocument passando o evento como parametro **_e_**
-no inicio da nossa função de callback, vemos o que recebemos do texto e analisamos ele como um todo e baseado no seus testes poderá ser feito alguma coisa na proxima função
-
-<h2>API de editar </h2>
+<h3>API de editar </h3>
+a api de editar é realmente divertida, mas um pouco complicada, é usado a API de activeEditor.edit, passando o builder como parametro e sendo usado para criar novos dados/ editar os dados que já existem e são usados no proprio editor
 
 ```
 vscode.window.activeTextEditor?.edit((editBuilder) => {
@@ -144,10 +135,5 @@ vscode.window.activeTextEditor?.edit((editBuilder) => {
 
 	});
 ```
-
-a api de editar é realmente divertida, mas um pouco complicada, é usado a API de activeEditor.edit, passando o builder como parametro e sendo usado para criar novos dados/ editar os dados que já existem e são usados no proprio editor
-
-<h2>Conclusão</h2>
-<br/>
-
+<h3>Conclusão</h3>
 Visto esse post, podemos ver como que é um pouco complicado mas extremamente recompensador criar essas apis
